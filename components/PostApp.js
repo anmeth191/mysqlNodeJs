@@ -7,7 +7,8 @@ constructor(props){
     super(props)
     this.state = {
         username:'',
-        lastname:''
+        lastname:'',
+        users:[]
     }
 }
 
@@ -22,7 +23,7 @@ submitHandler = (event)=>{
 
 PostNewUser = async (username , lastname)=>{
 
-const postUser = await axios({
+ await axios({
     method:'POST',
     url:'http://127.0.0.1:8080/',
     data:{
@@ -30,8 +31,7 @@ const postUser = await axios({
     lastName:lastname
     },
     Headers:{'Content-Type':'application/json'}
-}).then((response) =>{ console.log(response.data)}).catch( error =>{ console.log(error)})//end of the axios post request 
-
+}).then( response =>{  console.log(response) }).catch( error =>{ console.log(error)} )
 }
 
 changeHandler = (event) =>{

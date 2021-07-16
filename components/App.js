@@ -14,7 +14,7 @@ class App extends React.Component{
 
  displayUsersFromServer = async()=>{
 
-    const requestGet = await axios.get('http://127.0.0.1:8080/').then( response=> { this.setState({users:response.data.users},()=>{ return this.state.users })}).catch((error)=>{ console.log(error)})
+    await axios.get('http://127.0.0.1:8080/').then( response=> { this.setState({users:response.data.users},()=>{ return this.state.users })}).catch((error)=>{ console.log(error)})
 
 
 }//end of the method   
